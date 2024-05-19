@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s1="http://web.service.sdmx.sdms.sungard.com/" xmlns:tns="http://bancocentral.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://bancocentral.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://bancocentral.org/">
+      <s:import namespace="http://web.service.sdmx.sdms.sungard.com/" />
+      <s:element name="SearchSeries">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="frequencyCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchSeriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchSeriesResult" type="tns:Respuesta" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Respuesta">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Codigo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Series" type="tns:ArrayOfFameSeries" />
+          <s:element minOccurs="0" maxOccurs="1" name="SeriesInfos" type="tns:ArrayOfInternetSeriesInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFameSeries">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="fameSeries" nillable="true" type="s1:fameSeries" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInternetSeriesInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="internetSeriesInfo" nillable="true" type="s1:internetSeriesInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSeries">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firstDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="seriesIds" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSeriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSeriesResult" type="tns:Respuesta" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://web.service.sdmx.sdms.sungard.com/">
+      <s:complexType name="fameSeries">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:fameNode">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="seriesKey" type="s1:seriesKey" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="precision" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="obs" nillable="true" type="s1:obs" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="fameNode">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:abstractBaseObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="nodeLevel" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="groupDimension" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="header" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="root" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="abstractBaseObject" abstract="true" />
+      <s:complexType name="seriesKey">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="keyFamilyId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="lastModified" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="lastModifiedUser" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="seriesId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="dataStage" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="exists" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="descripIng" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="descripEsp" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="obs">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="indexDateString" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="seriesKey" type="s1:seriesKey" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="statusCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="value" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="internetSeriesInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="seriesId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="frequency" type="s1:frequency" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="frequencyCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="observed" type="s1:observed" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="observedCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="spanishTitle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="englishTitle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="firstObservation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="lastObservation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="updatedAt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="createdAt" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="frequency">
+        <s:restriction base="s:string">
+          <s:enumeration value="UNDEFINED" />
+          <s:enumeration value="SEMIANNUAL" />
+          <s:enumeration value="WEEKLY" />
+          <s:enumeration value="QUARTERLY" />
+          <s:enumeration value="MONTHLY" />
+          <s:enumeration value="ANNUAL" />
+          <s:enumeration value="DAILY" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="observed">
+        <s:restriction base="s:string">
+          <s:enumeration value="UNDEFINED" />
+          <s:enumeration value="SUMMED" />
+          <s:enumeration value="LOW" />
+          <s:enumeration value="HIGH" />
+          <s:enumeration value="END" />
+          <s:enumeration value="BEGINNING" />
+          <s:enumeration value="AVERAGED" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SearchSeriesSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchSeries" />
+  </wsdl:message>
+  <wsdl:message name="SearchSeriesSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchSeriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSeriesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSeries" />
+  </wsdl:message>
+  <wsdl:message name="GetSeriesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSeriesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SieteWSSoap">
+    <wsdl:operation name="SearchSeries">
+      <wsdl:input message="tns:SearchSeriesSoapIn" />
+      <wsdl:output message="tns:SearchSeriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSeries">
+      <wsdl:input message="tns:GetSeriesSoapIn" />
+      <wsdl:output message="tns:GetSeriesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SieteWSSoap" type="tns:SieteWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SearchSeries">
+      <soap:operation soapAction="http://bancocentral.org/SearchSeries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSeries">
+      <soap:operation soapAction="http://bancocentral.org/GetSeries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SieteWSSoap12" type="tns:SieteWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SearchSeries">
+      <soap12:operation soapAction="http://bancocentral.org/SearchSeries" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSeries">
+      <soap12:operation soapAction="http://bancocentral.org/GetSeries" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SieteWS">
+    <wsdl:port name="SieteWSSoap" binding="tns:SieteWSSoap">
+      <soap:address location="https://si3.bcentral.cl/SieteWS/SieteWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SieteWSSoap12" binding="tns:SieteWSSoap12">
+      <soap12:address location="https://si3.bcentral.cl/SieteWS/SieteWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,83 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\bazti\\source\\repos\\WSIntegracionPlataformas\\WSIntegracionPlataformas.DAL\\WSIntegracionPlataformas.DAL.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\bazti\\source\\repos\\WSIntegracionPlataformas\\WSIntegracionPlataformas.DAL\\WSIntegracionPlataformas.DAL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\bazti\\source\\repos\\WSIntegracionPlataformas\\WSIntegracionPlataformas.DAL\\WSIntegracionPlataformas.DAL.csproj",
+        "projectName": "WSIntegracionPlataformas.DAL",
+        "projectPath": "C:\\Users\\bazti\\source\\repos\\WSIntegracionPlataformas\\WSIntegracionPlataformas.DAL\\WSIntegracionPlataformas.DAL.csproj",
+        "packagesPath": "C:\\Users\\bazti\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\bazti\\source\\repos\\WSIntegracionPlataformas\\WSIntegracionPlataformas.DAL\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "configFilePaths": [
+          "C:\\Users\\bazti\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.pkg.github.com/admazarqsence/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "C:\\Users\\bazti\\source\\repos\\WSIntegracionPlataformas\\WSIntegracionPlataformas.Utils\\WSIntegracionPlataformas.Utils.csproj": {
+                "projectPath": "C:\\Users\\bazti\\source\\repos\\WSIntegracionPlataformas\\WSIntegracionPlataformas.Utils\\WSIntegracionPlataformas.Utils.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Mvc.Core": {
+              "target": "Package",
+              "version": "[2.2.5, )"
+            },
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[5.2.0, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-arm64": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    },
+    "C:\\Users\\bazti\\source\\repos\\WSIntegracionPlataformas\\WSIntegracionPlataformas.Utils\\WSIntegracionPlataformas.Utils.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\bazti\\source\\repos\\WSIntegracionPlataformas\\WSIntegracionPlataformas.Utils\\WSIntegracionPlataformas.Utils.csproj",
+        "projectName": "WSIntegracionPlataformas.Utils",
+        "projectPath": "C:\\Users\\bazti\\source\\repos\\WSIntegracionPlataformas\\WSIntegracionPlataformas.Utils\\WSIntegracionPlataformas.Utils.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    }
+  }
+}

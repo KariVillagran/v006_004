@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{782C1932-E90B-4CB5-9F8A-4D297E1FDDF4}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>WSIntegracionPlataformas.DAL</RootNamespace>
+    <AssemblyName>WSIntegracionPlataformas.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WSIntegracionPlataformas.Utils\WSIntegracionPlataformas.Utils.csproj">
+      <Project>{d669e649-22d0-4547-b444-fa0481631d8d}</Project>
+      <Name>WSIntegracionPlataformas.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Conexion.cs" />
+    <Compile Include="Entidades\Pedidos.cs" />
+    <Compile Include="Entidades\Precios.cs" />
+    <Compile Include="Entidades\ProductoPedido.cs" />
+    <Compile Include="Entidades\Producto.cs" />
+    <Compile Include="Entidades\Respuesta.cs" />
+    <Compile Include="Entidades\User.cs" />
+    <Compile Include="Implementacion\ProductosImpl.cs" />
+    <Compile Include="Implementacion\UserImpl.cs" />
+    <Compile Include="Program.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core">
+      <Version>2.2.5</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Data.SqlClient">
+      <Version>5.2.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

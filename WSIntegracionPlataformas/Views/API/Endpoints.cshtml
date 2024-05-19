@@ -1,0 +1,157 @@
+﻿
+@{
+    ViewBag.Title = "Endpoints";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Endpoints</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Endpoints</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Endpoint</th>
+                <th>Descripción</th>
+                <th>Método HTTP</th>
+                <th>URL</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>GET / GenerateToken</td>
+                <td>Generación de token de autenticación</td>
+                <td>GET</td>
+                <td>/https://localhost:44366/GenerateToken</td>
+            </tr>
+            <tr>
+                <td>GET / ValidateToken</td>
+                <td>Validación de token de autenticación</td>
+                <td>GET</td>
+                <td>/https://localhost:44366/ValidateToken</td>
+            </tr>
+            <tr>
+                <td>POST / Login</td>
+                <td>Entrega credenciales de inicio de sesión</td>
+                <td>POST</td>
+                <td>/https://localhost:44366/ValidateToken</td>
+            </tr>
+            <tr>
+                <td>POST / CrearUsuario</td>
+                <td>Creación de nuevo usuario en el sistema</td>
+                <td>POST</td>
+                <td>/https://localhost:44366/CrearUsuario</td>
+            <tr>
+                <td>POST / ObtenerProductoPorID</td>
+                <td>Obtiene un producto por ID</td>
+                <td>POST</td>
+                <td>/https://localhost:44366/ObtenerProductoPorID</td>
+            <tr>
+                <td>POST / ObtenerProductos</td>
+                <td>Devuelve todos los productos disponibles en el sistema</td>
+                <td>POST</td>
+                <td>/https://localhost:44366/ObtenerProductos</td>
+            </tr>
+            <tr>
+                <td>POST / AgregarProducto</td>
+                <td>Creación de nuevo producto</td>
+                <td>POST</td>
+                <td>/https://localhost:44366/AgregarProducto</td>
+            </tr>
+            <tr>
+                <td>POST / ObtenerStockProductos</td>
+                <td>Obtener el stock de los productos</td>
+                <td>POST</td>
+                <td>/https://localhost:44366/ObtenerStockProductos</td>
+            </tr>
+            </tr>
+            </tr>
+            <!-- Agrega más filas según tus endpoints -->
+        </tbody>
+    </table>
+    <h2>Detalles del Endpoint</h2>
+    <div>
+        <h3>GET / GenerateToken</h3>
+        <p>Este endpoint realiza y devuelve una generación de token de autenticación.</p>
+        <!-- Agrega más detalles según tus necesidades -->
+    </div>
+
+    <div>
+        <h3>GET / ValidateToken</h3>
+        <p> Este endpoint realiza una validación de token de autenticación. Se utiliza para verificar si un token de autenticación es válido o no. Esto es importante para garantizar la seguridad de las solicitudes al sistema.</p>
+        <!-- Agrega más detalles según tus necesidades -->
+    </div>
+
+    <div>
+        <h3>GET / Login</h3>
+        <p>Este endpoint devuelve credenciales de inicio de sesión. Se utiliza para iniciar sesión en el sistema.</p>
+        <!-- Agrega más detalles según tus necesidades -->
+    </div>
+
+    <div>
+        <h3>GET / CrearUsuario</h3>
+        <p>Este endpoint crea un nuevo usuario en el sistema. Es utilizado para registrar nuevos usuarios proporcionando la información necesaria. </p>
+        <!-- Agrega más detalles según tus necesidades -->
+    </div>
+
+    <div>
+        <h3>GET / ObtenerProductoPorID</h3>
+        <p>Este endpoint devuelve un producto por su ID. Es utilizado para obtener información detallada de un producto específico en el sistema, proporcionando su identificador único. </p>
+        <!-- Agrega más detalles según tus necesidades -->
+    </div>
+
+    <div>
+        <h3>GET / ObtenerProductos</h3>
+        <p>Este endpoint devuelve todos los productos disponibles en el sistema. Proporciona una lista completa de todos los productos que están disponibles para su compra o visualización.</p>
+        <!-- Agrega más detalles según tus necesidades -->
+    </div>
+
+    <div>
+        <h3>GET / AgregarProducto</h3>
+        <p>Este endpoint crea un nuevo producto en el sistema. Es utilizado para agregar un nuevo producto al catálogo del sistema proporcionando la información necesaria.</p>
+        <!-- Agrega más detalles según tus necesidades -->
+    </div>
+
+    <div>
+        <h3>GET / ObtenerStockProductos</h3>
+        <p>Este endpoint obtiene el stock de los productos. Proporciona información sobre la cantidad disponible de cada producto en el inventario del sistema. Es útil para realizar un seguimiento del inventario y gestionar el stock de productos disponibles.</p>
+        <!-- Agrega más detalles según tus necesidades -->
+    </div>
+
+    <!-- Agrega más bloques div para más endpoints -->
+</body>
+</html>
